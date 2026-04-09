@@ -1,10 +1,40 @@
-function comprar(nombre, precio) {
+let carrito = [];
+let total = 0;
 
-    let numero = "50371029678"; // 🔴 CAMBIA ESTO POR TU NUMERO REAL
+function agregarCarrito(nombre, precio, tallaId) {
 
-    let mensaje = `Hola, quiero comprar: ${nombre} - $${precio}`;
+    let talla = document.getElementById(tallaId).value;
 
-    let url = `https://wa.me/${71029678}?text=${encodeURIComponent(mensaje)}`;
+    if (talla === "") {
+        alert("Selecciona una talla");
+        return;
+    }
+
+    carrito.push({nombre, precio, talla});
+    total += precio;
+
+    document.getElementById("total").innerText = total;
+    document.getElementById("contador").innerText = carrito.length;
+
+    let lista = document.getElementById("lista");
+    let item = document.createElement("li");
+    item.innerText = `${nombre} - Talla ${talla} - $${precio}`;
+    lista.appendChild(item);
+}
+
+function comprarTodo() {
+
+    let numero = "50371029678"; // 🔴 CAMBIA TU NUMERO
+
+    let mensaje = "Hola, quiero comprar:\n\n";
+
+    carrito.forEach(p => {
+        mensaje += `- ${p.nombre} | Talla: ${p.talla} | $${p.precio}\n`;
+    });
+
+    mensaje += `\nTotal: $${total}`;
+
+    let url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
 
     window.open(url, "_blank");
 }
