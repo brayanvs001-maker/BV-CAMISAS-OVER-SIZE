@@ -1,44 +1,93 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>BV Camisas</title>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BV Store</title>
+<link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
 <header>
     <div class="logo-container">
-        <!-- USA TU IMAGEN -->
-        <img src="logo.png" alt="BV Logo">
-        <h1>BV</h1>
+        <img src="logo.png">
+        <h1>BV Store</h1>
+    </div>
+
+    <div class="carrito-icono">
+        🛒 <span id="contador">0</span>
     </div>
 </header>
 
 <section class="productos">
 
     <div class="producto">
-        <img src="camisa1.png" alt="Camisa Casual">
+        <img src="camisa1.png">
         <h2>Camisa Casual</h2>
-        <p>$15.00</p>
-        <button onclick="comprar('Camisa Casual',15)">Comprar</button>
+        <p>$15</p>
+        <select id="talla1">
+            <option value="">Talla</option>
+            <option>S</option>
+            <option>M</option>
+            <option>L</option>
+        </select>
+        <button onclick="agregarCarrito('Camisa Casual',15,'talla1')">Agregar</button>
     </div>
 
     <div class="producto">
-        <img src="camisa2.png" alt="Camisa Elegante">
+        <img src="camisa2.png">
         <h2>Camisa Elegante</h2>
-        <p>$25.00</p>
-        <button onclick="comprar('Camisa Elegante',25)">Comprar</button>
+        <p>$25</p>
+        <select id="talla2">
+            <option value="">Talla</option>
+            <option>S</option>
+            <option>M</option>
+            <option>L</option>
+        </select>
+        <button onclick="agregarCarrito('Camisa Elegante',25,'talla2')">Agregar</button>
     </div>
 
     <div class="producto">
-        <img src="camisa3.png" alt="Camisa Deportiva">
+        <img src="camisa3.png">
         <h2>Camisa Deportiva</h2>
-        <p>$18.00</p>
-        <button onclick="comprar('Camisa Deportiva',18)">Comprar</button>
+        <p>$18</p>
+        <select id="talla3">
+            <option value="">Talla</option>
+            <option>S</option>
+            <option>M</option>
+            <option>L</option>
+        </select>
+        <button onclick="agregarCarrito('Camisa Deportiva',18,'talla3')">Agregar</button>
     </div>
+
+    <div class="producto">
+        <img src="camisa4.png">
+        <h2>Camisa Oversize</h2>
+        <p>$22</p>
+        <select id="talla4">
+            <option value="">Talla</option>
+            <option>S</option>
+            <option>M</option>
+            <option>L</option>
+        </select>
+        <button onclick="agregarCarrito('Camisa Oversize',22,'talla4')">Agregar</button>
+    </div>
+
+    <div class="producto">
+        <img src="camisa5.png">
+        <h2>Camisa Premium</h2>
+        <p>$30</p>
+        <select id="talla5">
+            <option value="">Talla</option>
+            <option>S</option>
+            <option>M</option>
+            <option>L</option>
+        </select>
+        <button onclick="agregarCarrito('Camisa Premium',30,'talla5')">Agregar</button>
+    </div>
+
 </section>
 
-<script src="script.js"></script>
-</body>
-</html>
+<div class="carrito">
+    <
