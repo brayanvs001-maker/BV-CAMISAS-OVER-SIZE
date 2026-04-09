@@ -3,7 +3,14 @@ let total = 0;
 
 function agregarCarrito(nombre, precio, tallaId) {
 
-    let talla = document.getElementById(tallaId).value;
+    let select = document.getElementById(tallaId);
+
+    if (!select) {
+        alert("Error con la talla");
+        return;
+    }
+
+    let talla = select.value;
 
     if (talla === "") {
         alert("Selecciona una talla");
@@ -17,14 +24,18 @@ function agregarCarrito(nombre, precio, tallaId) {
     document.getElementById("contador").innerText = carrito.length;
 
     let lista = document.getElementById("lista");
-    let item = document.createElement("li");
-    item.innerText = `${nombre} - Talla ${talla} - $${precio}`;
-    lista.appendChild(item);
+    lista.innerHTML = "";
+
+    carrito.forEach(p => {
+        let item = document.createElement("li");
+        item.innerText = `${p.nombre} - Talla ${p.talla} - $${p.precio}`;
+        lista.appendChild(item);
+    });
 }
 
 function comprarTodo() {
 
-    let numero = "50371029678"; // 🔴 CAMBIA TU NUMERO
+    let numero = "503XXXXXXXX"; // 🔴 TU NUMERO
 
     let mensaje = "Hola, quiero comprar:\n\n";
 
