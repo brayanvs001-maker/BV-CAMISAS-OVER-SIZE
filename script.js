@@ -1,51 +1,61 @@
 let carrito = [];
 let total = 0;
 
-function agregarCarrito(nombre, precio, tallaId) {
+/* CARRITO */
+function agregarCarrito(nombre, precio, tallaId){
+    let talla = document.getElementById(tallaId).value;
 
-    let select = document.getElementById(tallaId);
+    if(talla===""){ alert("Selecciona talla"); return; }
 
-    if (!select) {
-        alert("Error con la talla");
-        return;
-    }
+    carrito.push({nombre,precio,talla});
+    total+=precio;
 
-    let talla = select.value;
-
-    if (talla === "") {
-        alert("Selecciona una talla");
-        return;
-    }
-
-    carrito.push({nombre, precio, talla});
-    total += precio;
-
-    document.getElementById("total").innerText = total;
     document.getElementById("contador").innerText = carrito.length;
+    document.getElementById("total").innerText = total;
 
     let lista = document.getElementById("lista");
-    lista.innerHTML = "";
+    lista.innerHTML="";
 
-    carrito.forEach(p => {
-        let item = document.createElement("li");
-        item.innerText = `${p.nombre} - Talla ${p.talla} - $${p.precio}`;
-        lista.appendChild(item);
+    carrito.forEach(p=>{
+        let li=document.createElement("li");
+        li.innerText=`${p.nombre} - ${p.talla} - $${p.precio}`;
+        lista.appendChild(li);
     });
 }
 
-function comprarTodo() {
-
-    let numero = "503XXXXXXXX"; // 🔴 TU NUMERO
-
-    let mensaje = "Hola, quiero comprar:\n\n";
-
-    carrito.forEach(p => {
-        mensaje += `- ${p.nombre} | Talla: ${p.talla} | $${p.precio}\n`;
-    });
-
-    mensaje += `\nTotal: $${total}`;
-
-    let url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
-
-    window.open(url, "_blank");
+/* MOSTRAR CARRITO */
+function toggleCarrito(){
+    document.getElementById("carrito").classList.toggle("oculto");
 }
+
+/* WHATSAPP */
+function comprarTodo(){
+    let numero="50371029678";
+
+    let msg="Hola, quiero comprar:\n\n";
+    carrito.forEach(p=>{
+        msg+=`- ${p.nombre} Talla:${p.talla} $${p.precio}\n`;
+    });
+    msg+=`\nTotal: $${total}`;
+
+    window.open(`https://wa.me/${numero}?text=${encodeURIComponent(msg)}`);
+}
+
+/* ZOOM */
+function abrirImagen(src){
+    document.getElementById("modal").style.display="flex";
+    document.getElementById("imgGrande").src=src;
+}
+
+function cerrarImagen(){
+    document.getElementById("modal").style.display="none";
+}
+
+/* CARRUSEL */
+let index=0;
+setInterval(()=>{
+    let imgs=document.querySelectorAll(".carousel-global img");
+    imgs[index].classList.remove("active");
+    index=(index+1)%imgs.length;
+    imgs[index].classList.add("active");
+},3000);
