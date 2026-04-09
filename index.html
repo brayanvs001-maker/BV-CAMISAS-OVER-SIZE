@@ -15,86 +15,102 @@
         <h1>BV Store</h1>
     </div>
 
-    <div class="carrito-icono">
+    <div class="carrito-icono" onclick="toggleCarrito()">
         🛒 <span id="contador">0</span>
     </div>
 </header>
 
+<!-- 🎞️ CARRUSEL -->
+<div class="carousel-global">
+    <img src="camisa1.png" class="active">
+    <img src="camisa2.png">
+    <img src="camisa3.png">
+    <img src="camisa4.png">
+    <img src="camisa5.png">
+</div>
+
 <section class="productos">
 
+    <!-- CAMISAS -->
     <div class="producto">
-        <img src="camisa1.png">
+        <img src="camisa1.png" onclick="abrirImagen(this.src)">
         <h2>Camisa Casual</h2>
         <p>$15</p>
         <select id="talla1">
             <option value="">Talla</option>
-            <option>S</option>
-            <option>M</option>
-            <option>L</option>
+            <option>S</option><option>M</option><option>L</option><option>XL</option>
         </select>
         <button onclick="agregarCarrito('Camisa Casual',15,'talla1')">Agregar</button>
     </div>
 
     <div class="producto">
-        <img src="camisa2.png">
+        <img src="camisa2.png" onclick="abrirImagen(this.src)">
         <h2>Camisa Elegante</h2>
         <p>$25</p>
         <select id="talla2">
             <option value="">Talla</option>
-            <option>S</option>
-            <option>M</option>
-            <option>L</option>
+            <option>S</option><option>M</option><option>L</option><option>XL</option>
         </select>
         <button onclick="agregarCarrito('Camisa Elegante',25,'talla2')">Agregar</button>
     </div>
 
     <div class="producto">
-        <img src="camisa3.png">
+        <img src="camisa3.png" onclick="abrirImagen(this.src)">
         <h2>Camisa Deportiva</h2>
         <p>$18</p>
         <select id="talla3">
             <option value="">Talla</option>
-            <option>S</option>
-            <option>M</option>
-            <option>L</option>
+            <option>S</option><option>M</option><option>L</option><option>XL</option>
         </select>
         <button onclick="agregarCarrito('Camisa Deportiva',18,'talla3')">Agregar</button>
     </div>
 
     <div class="producto">
-        <img src="camisa4.png">
+        <img src="camisa4.png" onclick="abrirImagen(this.src)">
         <h2>Camisa Oversize</h2>
         <p>$22</p>
         <select id="talla4">
             <option value="">Talla</option>
-            <option>S</option>
-            <option>M</option>
-            <option>L</option>
+            <option>S</option><option>M</option><option>L</option><option>XL</option>
         </select>
         <button onclick="agregarCarrito('Camisa Oversize',22,'talla4')">Agregar</button>
     </div>
 
     <div class="producto">
-        <img src="camisa5.png">
+        <img src="camisa5.png" onclick="abrirImagen(this.src)">
         <h2>Camisa Premium</h2>
         <p>$30</p>
         <select id="talla5">
             <option value="">Talla</option>
-            <option>S</option>
-            <option>M</option>
-            <option>L</option>
+            <option>S</option><option>M</option><option>L</option><option>XL</option>
         </select>
         <button onclick="agregarCarrito('Camisa Premium',30,'talla5')">Agregar</button>
     </div>
 
 </section>
 
-<div class="carrito">
+<!-- 🛒 CARRITO -->
+<div class="carrito oculto" id="carrito">
     <h2>Tu pedido</h2>
     <ul id="lista"></ul>
     <h3>Total: $<span id="total">0</span></h3>
     <button onclick="comprarTodo()">Comprar por WhatsApp</button>
 </div>
+
+<!-- 🔍 MODAL -->
+<div id="modal" class="modal" onclick="cerrarImagen()">
+    <img id="imgGrande">
+</div>
+
+<!-- 📞 FOOTER -->
+<footer class="footer">
+    <h3>BV Store</h3>
+    <p>📞 Tel: +503 7102-9678</p>
+    <div class="redes">
+        <a href="#">Facebook BV OVERSIZE</a>
+        <a href="#">Instagram BV_OVERSIZE</a>
+    </div>
+</footer>
 
 <script src="script.js"></script>
 </body>
