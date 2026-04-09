@@ -30,4 +30,72 @@
             <option value="">Talla</option>
             <option>S</option>
             <option>M</option>
-            <option
+            <option>L</option>
+        </select>
+        <button onclick="agregarCarrito('Camisa Casual',15,'talla1')">Agregar</button>
+    </div>
+
+    <div class="producto">
+        <img src="camisa2.png">
+        <h2>Camisa Elegante</h2>
+        <p>$25</p>
+        <select id="talla2">
+            <option value="">Talla</option>
+            <option>S</option>
+            <option>M</option>
+            <option>L</option>
+        </select>
+        <button onclick="agregarCarrito('Camisa Elegante',25,'talla2')">Agregar</button>
+    </div>
+
+    <div class="producto">
+        <img src="camisa3.png">
+        <h2>Camisa Deportiva</h2>
+        <p>$18</p>
+        <select id="talla3">
+            <option value="">Talla</option>
+            <option>S</option>
+            <option>M</option>
+            <option>L</option>
+        </select>
+        <button onclick="agregarCarrito('Camisa Deportiva',18,'talla3')">Agregar</button>
+    </div>
+
+    <div class="producto">
+        <img src="camisa4.png">
+        <h2>Camisa Oversize</h2>
+        <p>$22</p>
+        <select id="talla4">
+            <option value="">Talla</option>
+            <option>S</option>
+            <option>M</option>
+            <option>L</option>
+        </select>
+        <button onclick="agregarCarrito('Camisa Oversize',22,'talla4')">Agregar</button>
+    </div>
+
+    <div class="producto">
+        <img src="camisa5.png">
+        <h2>Camisa Premium</h2>
+        <p>$30</p>
+        <select id="talla5">
+            <option value="">Talla</option>
+            <option>S</option>
+            <option>M</option>
+            <option>L</option>
+        </select>
+        <button onclick="agregarCarrito('Camisa Premium',30,'talla5')">Agregar</button>
+    </div>
+
+</section>
+
+<div class="carrito">
+    <h2>Tu pedido</h2>
+    <ul id="lista"></ul>
+    <h3>Total: $<span id="total">0</span></h3>
+    <button onclick="comprarTodo()">Comprar por WhatsApp</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
