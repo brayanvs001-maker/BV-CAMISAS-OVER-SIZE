@@ -44,10 +44,11 @@ header {
     transform: scale(1.05);
 }
 
+/* 🔥 IMAGEN CORREGIDA */
 .producto img {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
+    height: auto;
+    object-fit: contain;
 }
 
 /* SELECT */
@@ -85,6 +86,6 @@ button {
     }
 
     .producto img {
-        height: 150px;
+        height: auto;
     }
 }
